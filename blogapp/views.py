@@ -19,3 +19,8 @@ def Addpost(request):
     newPost.body = jsonData['body']
     newPost.save()
     return HttpResponse("success")
+def post(request, pk):
+    post = Post.objects.get(id = pk)
+    return render(request, 'post.html', {'post':post})
+
+
